@@ -1,35 +1,67 @@
-<div class="year-group">
-  <div class="year-label">2026</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Quiet Notes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FAF9F6; --paper-raised:#F3F1EA; --ink:#1C1B19; --ink-soft:#5A5850;
+    --moss:#5C6B57; --moss-soft:#8A9583; --line:#E4E1D8; --measure: 34rem;
+  }
+  *{ box-sizing:border-box; }
+  body{ margin:0; background:var(--paper); color:var(--ink); font-family:'Source Serif 4', Georgia, serif; font-size:18px; line-height:1.7; -webkit-font-smoothing:antialiased; }
+  ::selection{ background:var(--moss-soft); color:#fff; }
+  a{ color:var(--moss); }
+  .wrap{ max-width: var(--measure); margin:0 auto; padding: 0 1.5rem; }
+  header.site{ padding: 5rem 0 3rem; border-bottom: 1px solid var(--line); margin-bottom: 3rem; }
+  header.site .wrap{ max-width: 40rem; }
+  .site-title{ font-size: 1.9rem; font-weight: 600; margin: 0 0 0.4rem; letter-spacing: -0.01em; }
+  .site-tagline{ color: var(--ink-soft); font-size: 1.02rem; font-style: italic; margin: 0 0 1.4rem; }
+  nav.site{ display:flex; gap:1.5rem; font-family:'JetBrains Mono', monospace; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; }
+  nav.site a{ text-decoration:none; color: var(--ink-soft); padding-bottom: 3px; border-bottom: 1px solid transparent; transition: border-color .2s ease, color .2s ease; }
+  nav.site a:hover, nav.site a.active{ color: var(--ink); border-color: var(--moss); }
+  main{ padding-bottom: 6rem; }
+  .about-photo-ph{ width: 88px; height: 88px; border-radius: 50%; background: var(--paper-raised); border: 1px solid var(--line); margin-bottom: 1.5rem; }
+  h1.page-title{ font-size: 1.7rem; margin: 0 0 1.3rem; }
+  main p{ margin: 0 0 1.4rem; }
+  .contact-list{ list-style:none; padding:0; margin: 2rem 0 0; font-family:'JetBrains Mono', monospace; font-size: 0.85rem; }
+  .contact-list li{ margin-bottom: 0.5rem; }
+  footer{ border-top: 1px solid var(--line); padding: 2rem 0 4rem; font-family:'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--ink-soft); text-align:center; }
+</style>
+</head>
+<body>
 
-  <div class="post-row">
-    <span class="post-date mono">Jul 12</span>
-    <div>
-      <a class="post-link" href="on-starting-again.html">On starting again</a>
-    </div>
+<header class="site">
+  <div class="wrap">
+    <p class="site-title">Quiet Notes</p>
+    <p class="site-tagline">a small, slow blog</p>
+    <nav class="site">
+      <a href="index.html">Writing</a>
+      <a href="about.html" class="active">About</a>
+    </nav>
   </div>
+</header>
 
-  <div class="post-row">
-    <span class="post-date mono">Jun 28</span>
-    <div>
-      <a class="post-link" href="what-i-learned-doing-nothing.html">What I learned doing nothing for a week</a>
-    </div>
+<main>
+  <div class="wrap">
+    <div class="about-photo-ph"></div>
+    <h1 class="page-title">About</h1>
+    <p>Hi — I'm glad you're here. This is a small corner of the internet where I write about what I'm noticing: things I'm learning, questions I'm sitting with, and the occasional small idea worth writing down before it disappears.</p>
+    <p>I don't post often, and that's on purpose. I'd rather write one true sentence a month than ten hollow ones a week.</p>
+    <p>If something here resonates, I'd love to hear from you.</p>
+    <ul class="contact-list">
+      <li>email — hello@example.com</li>
+      <li>rss — <a href="#">feed.xml</a></li>
+    </ul>
   </div>
+</main>
 
-  <div class="post-row">
-    <span class="post-date mono">Mar 03</span>
-    <div>
-      <a class="post-link" href="small-rooms.html">Small rooms</a>
-    </div>
-  </div>
-</div>
+<footer>
+  <div class="wrap">© 2026 · built by hand, not a template</div>
+</footer>
 
-<div class="year-group">
-  <div class="year-label">2025</div>
-
-  <div class="post-row">
-    <span class="post-date mono">Nov 19</span>
-    <div>
-      <a class="post-link" href="notes-on-noticing.html">Notes on noticing</a>
-    </div>
-  </div>
-</div>
+</body>
+</html>
