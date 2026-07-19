@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiet Notes — a personal blog</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FAF9F6;
+    --paper-raised:#F3F1EA;
+    --ink:#1C1B19;
+    --ink-soft:#5A5850;
+    --moss:#5C6B57;
+    --moss-soft:#8A9583;
+    --line:#E4E1D8;
+    --measure: 34rem;
+  }
+
+  *{ box-sizing:border-box; }
+
+  html{ scroll-behavior:smooth; }
+
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    font-size:18px;
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  ::selection{ background:var(--moss-soft); color:#fff; }
+
+  a{ color:inherit; }
+
+  .mono{
+    font-family:'JetBrains Mono', monospace;
+    letter-spacing:0.02em;
+  }
+
+  .wrap{
+    max-width: var(--measure);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  header.site{
+    padding: 5rem 0 3rem;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 3rem;
+  }
+
+  header.site .wrap{ max-width: 40rem; }
+
+  .site-title{
+    font-size: 1.9rem;
+    font-weight: 600;
+    margin: 0 0 0.4rem;
+    letter-spacing: -0.01em;
+  }
+
+  .site-tagline{
+    color: var(--ink-soft);
+    font-size: 1.02rem;
+    font-style: italic;
+    margin: 0 0 1.4rem;
+  }
+
+  nav.site{
+    display:flex;
+    gap:1.5rem;
+    font-family:'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  nav.site a{
+    text-decoration:none;
+    color: var(--ink-soft);
+    padding-bottom: 3px;
+    border-bottom: 1px solid transparent;
+    transition: border-color .2s ease, color .2s ease;
+  }
+  nav.site a:hover, nav.site a.active{
+    color: var(--ink);
+    border-color: var(--moss);
+  }
+
+  main{ padding-bottom: 6rem; }
+
+  .year-group{ margin-bottom: 3.2rem; }
+
+  .year-label{
+    font-family:'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--moss-soft);
+    margin-bottom: 1.1rem;
+    padding-left: 2px;
+  }
+
+  .post-row{
+    display:flex;
+    gap: 1.4rem;
+    align-items: baseline;
+    padding: 0.85rem 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .year-group .post-row:last-child{ border-bottom:none; }
+
+  .post-date{
+    font-family:'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+    flex: 0 0 3.6rem;
+  }
+
+  .post-link{
+    text-decoration:none;
+    color: var(--ink);
+    font-size: 1.12rem;
+    position: relative;
+    display:inline-block;
+  }
+
+  .post-link::after{
+    content:"";
+    position:absolute;
+    left:0; bottom:-2px;
+    width:100%; height:1px;
+    background:var(--moss);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .35s cubic-bezier(.4,0,.2,1);
+  }
+  .post-link:hover::after{ transform: scaleX(1); }
+
+  .post-excerpt{
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+    margin: 0.3rem 0 0;
+    font-style: italic;
+    display:none;
+  }
+
+  .about-photo-ph{
+    width: 88px; height: 88px;
+    border-radius: 50%;
+    background: var(--paper-raised);
+    border: 1px solid var(--line);
+    margin-bottom: 1.5rem;
+  }
+
+  h1.page-title{
+    font-size: 1.7rem;
+    margin: 0 0 1.3rem;
+  }
+
+  .post-header{ margin-bottom: 2.4rem; }
+
+  .post-meta{
+    font-family:'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--moss);
+    margin-bottom: 0.8rem;
+  }
+
+  .post-title{
+    font-size: 2.1rem;
+    line-height:1.25;
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+
+  .post-body p{ margin: 0 0 1.4rem; }
+  .post-body h2{
+    font-size: 1.3rem;
+    margin: 2.2rem 0 1rem;
+  }
+  .post-body blockquote{
+    margin: 1.6rem 0;
+    padding-left: 1.1rem;
+    border-left: 2px solid var(--moss);
+    color: var(--ink-soft);
+    font-style: italic;
+  }
+
+  .back-link{
+    display:inline-block;
+    margin-bottom: 2.5rem;
+    text-decoration:none;
+    font-family:'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .back-link:hover{ color: var(--moss); }
+
+  footer{
+    border-top: 1px solid var(--line);
+    padding: 2rem 0 4rem;
+    font-family:'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--ink-soft);
+    text-align:center;
+  }
+
+  @media (max-width: 480px){
+    body{ font-size: 16.5px; }
+    header.site{ padding: 3.2rem 0 2.2rem; }
+    .post-title{ font-size: 1.7rem; }
+    .post-row{ gap: 0.9rem; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <p class="site-title">Quiet Notes</p>
+    <p class="site-tagline">a small, slow blog</p>
+    <nav class="site">
+      <a href="index.html" class="active">Writing</a>
+      <a href="about.html">About</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <div class="year-group">
+      <div class="year-label">2026</div>
+
+      <div class="post-row">
+        <span class="post-date mono">Jul 12</span>
+        <div>
+          <a class="post-link" href="on-starting-again.html">On starting again</a>
+        </div>
+      </div>
+
+      <div class="post-row">
+        <span class="post-date mono">Jun 28</span>
+        <div>
+          <a class="post-link" href="what-i-learned-doing-nothing.html">What I learned doing nothing for a week</a>
+        </div>
+      </div>
+
+      <div class="post-row">
+        <span class="post-date mono">Mar 03</span>
+        <div>
+          <a class="post-link" href="small-rooms.html">Small rooms</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="year-group">
+      <div class="year-label">2025</div>
+
+      <div class="post-row">
+        <span class="post-date mono">Nov 19</span>
+        <div>
+          <a class="post-link" href="notes-on-noticing.html">Notes on noticing</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 · built by hand, not a template</div>
+</footer>
+
+</body>
+</html>
