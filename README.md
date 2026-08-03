@@ -1,0 +1,1 @@
+Quiet Notes is a small, personal notepad where I write about whatever's on my mind — no fixed topic, no schedule. Some posts might be about big things, some about random thoughts, life or things I'm figuring out. It's less about having a niche and more about having a space to think out loud.
